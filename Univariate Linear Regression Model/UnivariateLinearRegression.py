@@ -7,8 +7,8 @@ class UnivariateLinearRegression:
         """
         初始化線性回歸模型，添加一列全為1的數據作為截距項。
         輸入的參數應為：
-        features (一列(直行)矩陣): 特徵數據
-        labels (一列(直行)矩陣): 標籤數據
+        features (ndarray，一列(直行)矩陣): 特徵數據
+        labels (ndarray，一列(直行)矩陣): 標籤數據
         """
         ones = np.ones((features.shape[0], 1))
         features = np.hstack([ones, features])
