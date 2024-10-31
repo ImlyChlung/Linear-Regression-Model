@@ -2,7 +2,7 @@ import pandas as pd
 from UnivariateLinearRegression import UnivariateLinearRegression as ULR
 
 # 讀取數據
-data = pd.read_csv('data.csv')
+data = pd.read_csv('data.csv', header=None)
 
 # 分開特徵和標籤
 features = data.iloc[:, 0].values.reshape(-1, 1)  # 將第一列作為特徵，重塑為一列矩陣
