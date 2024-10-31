@@ -19,7 +19,7 @@ class UnivariateLinearRegression:
 
     def train(self, alpha, num_of_iteration):
         """
-        訓練線性回歸模型，使用梯度下降法更新參數。
+        訓練線性回歸模型，使用梯度下降法更新參數theta。
         參數：
         alpha (float): 學習率
         num_of_iteration (int): 迭代次數
@@ -54,7 +54,7 @@ class UnivariateLinearRegression:
 
     def gradient_step(self, alpha):
         """
-        執行一步梯度下降法更新參數。
+        執行一步梯度下降法更新參數theta。
         參數： alpha (float): 學習率
         """
         gradient = self.compute_gradient()
