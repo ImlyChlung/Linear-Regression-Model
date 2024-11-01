@@ -80,7 +80,7 @@ class UnivariateLinearRegression:
         """
         plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']
         plt.scatter(self.features[:, 1], self.labels, color='blue', label='數據')
-        plt.plot(self.features[:, 1], np.dot(self.features, self.theta), color='red', label='回歸線')
+        plt.plot(self.features[:, 1], np.dot(self.features, self.theta), color='red', label='迴歸線')
         plt.xlabel('特徵')
         plt.ylabel('標籤')
         plt.title('一元線性迴歸')
