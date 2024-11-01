@@ -1,7 +1,7 @@
 import pandas as pd
 from UnivariateLinearRegression import UnivariateLinearRegression as ULR
 
-# 讀取數據
+# 讀取數據，這是一份學生溫習時間和成績的數據
 data = pd.read_csv('data.csv', header=None)
 
 # 分開特徵和標籤
