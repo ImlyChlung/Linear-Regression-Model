@@ -32,7 +32,7 @@ class UnivariateLinearRegression:
             self.cost_history.append(self.cost_function())
         print(f"模型訓練後的參數為: c = {self.theta[0]}, m = {self.theta[1]}")
         print(f"模型訓練後的損失函數為: {self.cost_function()}")
-        print(f"模型訓練前的損失函數導數為(理論應接近0): {self.compute_gradient()}")
+        print(f"模型訓練前的損失函數導數為(理論應逐漸趨向0): {self.compute_gradient()}")
 
     def cost_function(self):
         """
@@ -69,7 +69,7 @@ class UnivariateLinearRegression:
         delta = self.labels - np.dot(self.features, self.theta)
         prediction = np.dot(features, self.theta)
         print(f"模型預測值為: {prediction[0]}")
-        print(f"誤差的平均值為(理論應接近0): {np.mean(delta)}")
+        print(f"誤差的平均值為(理論應逐漸趨向0): {np.mean(delta)}")
         print(f"誤差的標準差為: {np.std(delta)}")
         print(f"因此模型預測實際值有68.26%在範圍: {prediction[0]-np.std(delta)} - {prediction[0]+np.std(delta)}")
         print(f"95.44%在範圍: {prediction[0]-2*np.std(delta)} - {prediction[0]+2*np.std(delta)}")
