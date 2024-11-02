@@ -33,6 +33,7 @@ class UnivariateLinearRegression:
         print(f"模型訓練後的參數為: c = {self.theta[0]}, m = {self.theta[1]}")
         print(f"模型訓練後的損失函數為: {self.cost_function()}")
         print(f"模型訓練後的學習率乘以損失函數導數為(理論應逐漸趨向0): {alpha*self.compute_gradient()}")
+        return self.theta
 
     def cost_function(self):
         """
