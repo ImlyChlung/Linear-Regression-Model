@@ -25,6 +25,7 @@ class UnivariateLinearRegression:
         self.labels_test = labels_test
         self.theta = np.zeros((2,1))
         self.cost_history = []
+        return self.theta
 
     def train(self, alpha, num_of_iteration):
         """
