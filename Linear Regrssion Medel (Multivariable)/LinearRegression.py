@@ -84,7 +84,7 @@ class LinearRegression:
 
     def prediction(self):
         """
-        輸入一個特徵值，使用訓練好的模型進行預測。
+        輸入一組特徵值，使用訓練好的模型進行預測。
         """
         features = [float(x) for x in input("請輸入特徵值，用逗號分隔:").split(",")]
         features = np.array(features).reshape(1, -1)
