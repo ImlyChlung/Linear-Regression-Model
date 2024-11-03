@@ -8,8 +8,8 @@ df = pd.read_csv('Student_Performance.csv')
 df['Extracurricular Activities'] = df['Extracurricular Activities'].map({'Yes': 1, 'No': 0})
 
 # 分離特徵和標籤
-features = df.drop(columns=['Performance Index'])  # 除去標籤列，剩下的是特徵
-labels = df['Performance Index'].values.reshape((df.shape[0],1))  # 將標籤重塑為列向量
+features = df.drop(columns=['Performance Index']).values # 將 DataFrame 轉換為 NumPy 數組，除去標籤列，剩下的是特徵
+labels = df['Performance Index'].values.reshape((df.shape[0],1))
 
 # 創建線性回歸模型實例
 Example = LR(features, labels)
@@ -25,6 +25,3 @@ Example.test()  # 顯示模型在訓練和測試數據上的誤差標準差
 
 # 預測新數據
 Example.prediction()  # 用戶輸入新特徵值進行預測
-
-
-
