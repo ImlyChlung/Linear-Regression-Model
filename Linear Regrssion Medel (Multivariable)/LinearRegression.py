@@ -7,7 +7,7 @@ class LinearRegression:
 
     def __init__(self, features, labels, test_size=0.2):
         """
-        初始化線性迴歸模型，添加一列全為1的數據作為截距項。
+        初始化線性回歸模型，添加一列全為1的數據作為截距項。
         輸入的參數應為：
         features (ndarray，N列矩陣): 特徵數據 (N維)
         labels (ndarray，一列(直行)矩陣): 標籤數據
@@ -18,15 +18,15 @@ class LinearRegression:
         4. 初始化模型參數 theta 為全零矩陣。
         5. 初始化 cost_history 列表，用於記錄每次迭代的損失值。
         """
-        ones = np.ones((features.shape[0], 1))
-        features = np.hstack([ones, features])
         self.standardize_data(features, labels)
+        ones = np.ones((features.shape[0], 1))
+        self.features = np.hstack([ones, self.features])
         features_train, features_test, labels_train, labels_test = train_test_split(self.features, self.labels, test_size=test_size)
         self.features = features_train
         self.labels = labels_train
         self.features_test = features_test
         self.labels_test = labels_test
-        self.theta = np.zeros((features.shape[1],1))
+        self.theta = np.zeros((self.features.shape[1],1))
         self.cost_history = []
 
     def standardize_data(self, features, labels):
@@ -84,19 +84,22 @@ class LinearRegression:
 
     def prediction(self):
         """
-        輸入一組特徵值，使用訓練好的模型進行預測。
+        輸入一個特徵值，使用訓練好的模型進行預測。
         """
         features = [float(x) for x in input("請輸入特徵值，用逗號分隔:").split(",")]
-        features = np.hstack([1, features]).reshape(1, -1)
+        features = np.array(features).reshape(1, -1)
         features = self.scaler_features.transform(features)
+        ones = np.ones((features.shape[0], 1))
+        features = np.hstack([ones, features])
         delta = self.scaler_labels.inverse_transform(self.labels) - self.scaler_labels.inverse_transform(np.dot(self.features, self.theta))
         scaler_prediction = np.dot(features, self.theta)
-        prediction =  self.scaler_labels.inverse_transform(scaler_prediction)
+        prediction = self.scaler_labels.inverse_transform(scaler_prediction.reshape(-1, 1))
         print(f"模型預測值為: {prediction[0][0]}")
         print(f"誤差的平均值為(理論應逐漸趨向0): {np.mean(delta)}")
         print(f"誤差的標準差為: {np.std(delta)}")
         print(f"因此模型預測實際值有68.26%在範圍: {prediction[0][0]-np.std(delta)} - {prediction[0][0]+np.std(delta)}")
         print(f"95.44%在範圍: {prediction[0][0]-2*np.std(delta)} - {prediction[0][0]+2*np.std(delta)}")
+        return self.theta
 
     def visualization(self):
         """
