@@ -7,7 +7,7 @@ class LinearRegression:
 
     def __init__(self, features, labels, test_size=0.2):
         """
-        初始化線性回歸模型，添加一列全為1的數據作為截距項。
+        初始化線性迴歸模型，添加一列全為1的數據作為截距項。
         輸入的參數應為：
         features (ndarray，N列矩陣): 特徵數據 (N維)
         labels (ndarray，一列(直行)矩陣): 標籤數據
@@ -84,7 +84,7 @@ class LinearRegression:
 
     def prediction(self):
         """
-        輸入一個特徵值，使用訓練好的模型進行預測。
+        輸入一組特徵值，使用訓練好的模型進行預測。
         """
         features = [float(x) for x in input("請輸入特徵值，用逗號分隔:").split(",")]
         features = np.hstack([1, features]).reshape(1, -1)
