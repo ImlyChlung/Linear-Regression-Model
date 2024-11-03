@@ -17,5 +17,8 @@ Example.train(alpha=0.00001, num_of_iteration=100)  # 設置學習率和迭代�
 # 可視化數據和回歸線
 Example.visualization()
 
+# 測試模型性能
+Example.test()
+
 # 預測新數據
 Example.prediction()  # 用戶輸入新特徵值進行預測
