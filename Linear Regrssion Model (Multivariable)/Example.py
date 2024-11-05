@@ -14,7 +14,7 @@ labels = df['Performance Index'].values.reshape((df.shape[0],1))
 # 創建線性回歸模型實例
 Example = LR(features, labels)
 
-# 訓練模型（假設這是訓練後的theta）
+# 訓練模型
 Example.train(0.001, 3000)  # 設置學習率和迭代次數
 
 # 可視化模型結果
