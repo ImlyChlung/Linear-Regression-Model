@@ -18,7 +18,7 @@ Example = LR(features, labels)
 Example.train(0.001, 3000)  # 設置學習率和迭代次數
 
 # 可視化模型結果
-Example.visualization()  # 顯示數據點、回歸線及損失函數的變化
+Example.visualization()  # 顯示損失函數的變化
 
 # 測試模型性能
 Example.test()  # 顯示模型在訓練和測試數據上的誤差標準差
