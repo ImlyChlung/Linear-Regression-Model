@@ -98,8 +98,7 @@ class LinearRegression:
         print(f"誤差的平均值為(理論應逐漸趨向0): {np.mean(delta)}")
         print(f"誤差的標準差為: {np.std(delta)}")
         print(f"因此模型預測實際值有68.26%在範圍: {prediction[0][0]-np.std(delta)} - {prediction[0][0]+np.std(delta)}")
-        print(f"95.44%在範圍: {prediction[0][0]-2*np.std(delta)} - {prediction[0][0]+2*np.std(delta)}")
-        return self.theta
+        print(f"95.44%在範圍: {prediction[0][0]-2*np.std(delta)} - {prediction[0][0]+2*np.std(delta)}")
 
     def visualization(self):
         """
